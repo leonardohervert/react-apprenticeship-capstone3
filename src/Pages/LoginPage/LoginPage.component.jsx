@@ -3,11 +3,14 @@ import { connect } from "react-redux";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import SignIn from "../../components/SignIn";
-import { signInEmail } from "../../redux/actions/auth.actions";
+import {
+  signInEmail,
+  signInWithGoogle,
+} from "../../redux/actions/auth.actions";
 import "./Login.styles.css";
 
 function LoginPage({ ...props }) {
-  const { signInEmail, authenticated } = props;
+  const { signInEmail, signInWithGoogle, authenticated } = props;
   const history = useHistory();
 
   const emailRef = useRef();
@@ -44,7 +47,12 @@ function LoginPage({ ...props }) {
             login
           </button>
         </form>
-        <SignIn className="btn btn-light w-100 my-3" />
+        <SignIn
+          className="btn btn-light w-100 my-3"
+          onClick={() => {
+            signInWithGoogle();
+          }}
+        />
         <div className="d-flex justify-content-center">
           Need an account?
           <Link to="/signup">Sign Up!</Link>
@@ -58,5 +66,5 @@ const mapStateToProps = ({ auth }) => {
   const { authenticated } = auth;
   return { authenticated };
 };
-const mapDispatchToProps = { signInEmail };
+const mapDispatchToProps = { signInEmail, signInWithGoogle };
 export default connect(mapStateToProps, mapDispatchToProps)(LoginPage);
