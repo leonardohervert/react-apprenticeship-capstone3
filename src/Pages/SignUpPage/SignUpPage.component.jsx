@@ -51,7 +51,7 @@ function SignUpPage({ ...props }) {
               <input required ref={confirmPasswordRef} type="password" />
             </label>
           </div>
-          <button className="login-button" type="submit">
+          <button className="btn btn-primary w-100" type="submit">
             Sign Up
           </button>
           {/* <SignIn className="login-button" /> */}
