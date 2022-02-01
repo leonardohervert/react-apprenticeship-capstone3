@@ -1,0 +1,40 @@
+.spinner-container {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100vw;
+  height: 100vh;
+  z-index: 2;
+}
+
+.spinner,
+.spinner:after {
+  width: 64px;
+  height: 64px;
+  position: fixed;
+  top: 30vh;
+  left: 50vw;
+  margin-top: -32px;
+  margin-left: -32px;
+  border-radius: 50%;
+  z-index: 5;
+}
+.spinner {
+  background-color: transparent;
+  border-top: 10px solid rgb(66, 139, 202);
+  border-right: 10px solid rgb(66, 139, 202);
+  border-bottom: 10px solid rgb(66, 139, 202);
+  border-left: 10px solid rgba(66, 139, 202, 0.2);
+  transform: translateZ(0);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-duration: 0.8s;
+  animation-name: spinner-loading;
+}
+@keyframes spinner-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(1turn);
+  }
+}
