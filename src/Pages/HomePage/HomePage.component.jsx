@@ -8,7 +8,6 @@ import NoteCard from "../../components/NoteCard";
 const HomePage = ({ ...props }) => {
   const { uid, getNotes } = props;
   useEffect(() => {
-    console.log("entro2");
     getNotes(uid);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

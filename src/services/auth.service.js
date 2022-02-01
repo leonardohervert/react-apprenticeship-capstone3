@@ -45,6 +45,7 @@ export const SignInWithEmail = async (user) => {
     })
     .catch((error) => {
       return {
+        error: true,
         code: error.code,
         message: error.message,
       };

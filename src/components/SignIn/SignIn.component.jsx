@@ -1,28 +1,17 @@
 import React from "react";
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { connect } from "react-redux";
+import { signInWithGoogle } from "../../redux/actions/auth.actions";
 const SignIn = ({ ...props }) => {
-  const SignInWithFirebase = () => {
-    const provider = new GoogleAuthProvider();
-    const auth = getAuth();
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        console.log(result);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  const { signInWithGoogle } = props;
+  function handleOnClick() {
+    signInWithGoogle();
+  }
 
   return (
-    <React.Fragment>
-      <div>
-        <button {...props} onClick={() => SignInWithFirebase()}>
-          Google Login
-        </button>
-      </div>
-    </React.Fragment>
+    <button {...props} onClick={() => handleOnClick()}>
+      Google Login
+    </button>
   );
 };
-const mapDispatchToProps = {};
+const mapDispatchToProps = { signInWithGoogle };
 export default connect(null, mapDispatchToProps)(SignIn);

@@ -54,7 +54,6 @@ function SignUpPage({ ...props }) {
           <button className="btn btn-primary w-100" type="submit">
             Sign Up
           </button>
-          {/* <SignIn className="login-button" /> */}
         </form>
       </section>
     </div>

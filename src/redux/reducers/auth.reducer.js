@@ -7,6 +7,9 @@ const initialState = {
   phoneNumber: "",
   uid: "",
   authenticated: false,
+  error: false,
+  code: "",
+  message: "",
 };
 
 const reducer = (state = initialState, action) => {

@@ -18,6 +18,8 @@ export const signInWithGoogle = (email) => async (dispatch) => {
   const response = await SignInWithGoogle({ email });
   if (!response.error)
     dispatch({ type: types.SIGN_IN, payload: { ...response } });
+  else dispatch(authError(response));
+
   dispatch({ type: types.LOADING });
 };
 

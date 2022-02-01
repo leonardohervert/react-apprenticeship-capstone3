@@ -2,8 +2,10 @@ import React from "react";
 import { connect } from "react-redux";
 import { signOutAuth } from "../../redux/actions/auth.actions";
 import { Link } from "react-router-dom";
+import Image from "../Image";
 const Header = ({ ...props }) => {
-  const { signOutAuth, email } = props;
+  const { signOutAuth, auth } = props;
+  const { email, photoURL } = auth;
   const handleLogOut = () => {
     signOutAuth();
   };
@@ -15,9 +17,18 @@ const Header = ({ ...props }) => {
             Home
           </Link>
           <div className="d-flex justify-content-end">
-            <div className="d-flex align-items-center">
+            <div className="d-flex align-items-center mx-2">
               <span>{email}</span>
             </div>
+            {photoURL && (
+              <Image
+                src={photoURL}
+                width={40}
+                height={40}
+                className="img-fluid rounded"
+                alt="user"
+              />
+            )}
             <button className="btn" onClick={handleLogOut}>
               Log Out
             </button>
@@ -29,8 +40,7 @@ const Header = ({ ...props }) => {
 };
 
 const mapStateToProps = ({ auth }) => {
-  const { email } = auth;
-  return { email };
+  return { auth };
 };
 const mapDispatchToProps = {
   signOutAuth,
