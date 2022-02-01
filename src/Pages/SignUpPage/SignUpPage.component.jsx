@@ -7,6 +7,7 @@ function SignUpPage({ ...props }) {
   const { authenticated, signUpEmail } = props;
   const history = useHistory();
 
+  // eslint-disable-next-line no-unused-vars
   const [error, setError] = useState();
 
   const emailRef = useRef();

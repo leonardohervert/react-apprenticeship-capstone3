@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import { connect } from "react-redux";
 import { addNewNote } from "../../redux/actions/note.actions";
 import "./NoteCard.css";
